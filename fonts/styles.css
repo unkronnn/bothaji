@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('./PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900; /* Adjust based on the font weights available */
+    font-style: normal;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif; /* Apply the font to the body */
+}
