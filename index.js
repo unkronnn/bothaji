@@ -230,100 +230,207 @@ function startStatusAutoUpdate(client) {
       limited_stock: 0
     };
 
-    // Calculate statistics
+    const gameStatus = {}; // Track status per game for simplified display
+
+    console.log(`[INFO] Generating status embed with data for ${Object.keys(statusData).length} categories`);
+
+    // Calculate statistics and game status
     for (const [game, cheats] of Object.entries(statusData)) {
       if (game === 'globalSettings') continue;
 
+      const gameStats = {
+        available: 0,
+        maintenance: 0,
+        out_of_stock: 0,
+        limited_stock: 0,
+        total: 0
+      };
+
+      console.log(`[INFO] Processing game: ${game} with ${Object.keys(cheats).length} cheats`);
+
       for (const [cheat, info] of Object.entries(cheats)) {
         totalCheats++;
-        if (info.status === 'available') allAvailable++;
+        gameStats.total++;
+        if (info.status === 'available') {
+          allAvailable++;
+          gameStats.available++;
+        }
         statusCounts[info.status] = (statusCounts[info.status] || 0) + 1;
+        gameStats[info.status]++;
       }
+
+      gameStatus[game] = gameStats;
+      console.log(`[INFO] Game ${game}: ${gameStats.available}/${gameStats.total} available`);
     }
 
     const successRate = totalCheats > 0 ? Math.round((allAvailable/totalCheats) * 100) : 0;
+    console.log(`[INFO] Total cheats: ${totalCheats}, Available: ${allAvailable}, Success rate: ${successRate}%`);
 
     // Set embed color based on overall availability
     let overallColor;
+    let overallStatusEmoji;
     if (successRate >= 80) {
       overallColor = '#00ff00'; // Green
+      overallStatusEmoji = '🟢';
     } else if (successRate >= 60) {
       overallColor = '#ffaa00'; // Yellow
+      overallStatusEmoji = '🟡';
     } else {
       overallColor = '#ff0000'; // Red
+      overallStatusEmoji = '🔴';
     }
 
     const embed = new EmbedBuilder()
-      .setTitle('🎮 Yash Store - Live Cheat Status Dashboard')
-      .setDescription('Real-time availability status for all game cheats • Auto-updated every 5 minutes')
+      .setTitle(`${overallStatusEmoji} YASH STORE - COMPREHENSIVE CHEAT MONITOR`)
+      .setDescription(
+        `🚀 **Real-time cheat availability** • Automatic updates • **${totalCheats}+** products across **${Object.keys(gameStatus).length}** games monitored\n` +
+        `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`
+      )
       .setColor(overallColor)
       .setThumbnail('https://cdn.discordapp.net/attachments/1412314599637651477/1434088772135424041/file.png.jpeg')
       .setTimestamp()
       .setFooter({
-        text: `Last updated: ${new Date().toLocaleString()} • Auto-refresh active • Success Rate: ${successRate}%`,
+        text: `Last Update: ${new Date().toLocaleString()} • Auto-refresh • Yash Store Premium`,
         iconURL: 'https://cdn.discordapp.net/attachments/1412314599637651477/1434088772135424041/file.png.jpeg'
-      })
-      .addFields(
-        {
-          name: '📊 Live Statistics',
-          value: `✅ **Available:** ${statusCounts.available}\n` +
-                 `🔧 **Maintenance:** ${statusCounts.maintenance}\n` +
-                 `❌ **Out of Stock:** ${statusCounts.out_of_stock}\n` +
-                 `⚠️ **Limited Stock:** ${statusCounts.limited_stock}\n\n` +
-                 `📈 **Overall Success Rate:** ${successRate}% (${allAvailable}/${totalCheats})`,
-          inline: true
-        },
-        {
-          name: '🔄 Update Information',
-          value: `**Next Update:** <t:${Math.floor(Date.now() / 1000) + 300}:R>\n` +
-                 `**Auto-Update:** Active\n` +
-                 `**Update Interval:** Every 5 minutes\n` +
-                 `**System Status:** Online`,
-          inline: true
-        }
-      );
+      });
 
-    // Add alerts if needed
+    // Comprehensive Game Status Overview
+    const gameStatusLines = [];
+    for (const [game, stats] of Object.entries(gameStatus)) {
+      const gameName = formatGameName(game);
+      const gameSuccessRate = Math.round((stats.available / stats.total) * 100);
+
+      let statusEmoji;
+      if (gameSuccessRate >= 80) {
+        statusEmoji = '🟢';
+      } else if (gameSuccessRate >= 60) {
+        statusEmoji = '🟡';
+      } else {
+        statusEmoji = '🔴';
+      }
+
+      // Add more detailed status information
+      let statusDetails = [];
+      if (stats.limited_stock > 0) statusDetails.push(`${stats.limited_stock} ⚠️`);
+      if (stats.maintenance > 0) statusDetails.push(`${stats.maintenance} 🔧`);
+      if (stats.out_of_stock > 0) statusDetails.push(`${stats.out_of_stock} ❌`);
+
+      const detailsText = statusDetails.length > 0 ? ` (${statusDetails.join(', ')})` : '';
+
+      gameStatusLines.push(`${statusEmoji} **${gameName}**: ${stats.available}/${stats.total} available (${gameSuccessRate}%)${detailsText}`);
+    }
+
+    embed.addFields(
+      {
+        name: '📊 **GAME STATUS OVERVIEW**',
+        value: gameStatusLines.join('\n'),
+        inline: false
+      },
+      {
+        name: '📈 **SYSTEM STATISTICS**',
+        value: `✅ **Available:** ${statusCounts.available} products\n` +
+               `🔧 **Maintenance:** ${statusCounts.maintenance} products\n` +
+               `❌ **Out of Stock:** ${statusCounts.out_of_stock} products\n` +
+               `⚠️ **Limited Stock:** ${statusCounts.limited_stock} products\n\n` +
+               `🎯 **Overall Success Rate:** ${successRate}% (${allAvailable}/${totalCheats})`,
+        inline: true
+      },
+      {
+        name: '⚙️ **SYSTEM PERFORMANCE**',
+        value: `🔄 **Next Update:** <t:${Math.floor(Date.now() / 1000) + 300}:R>\n` +
+               `⚡ **Update Speed:** Instant\n` +
+               `🕐 **Interval:** Every 5 minutes\n` +
+               `🌟 **System Health:** Online`,
+        inline: true
+      }
+    );
+
+    // Special alerts section
     const alerts = [];
     if (statusCounts.limited_stock > 0) {
-      alerts.push(`🚨 **Limited Stock Alert:** ${statusCounts.limited_stock} cheat(s) with limited availability!`);
+      alerts.push(`🔥 **LIMITED STOCK FLASH SALE!**\n${statusCounts.limited_stock} products with limited availability - Act fast!`);
     }
     if (statusCounts.maintenance > 0) {
-      alerts.push(`🔧 **Maintenance Notice:** ${statusCounts.maintenance} cheat(s) currently under maintenance`);
+      alerts.push(`🔧 **MAINTENANCE IN PROGRESS**\n${statusCounts.maintenance} products temporarily unavailable - Updates incoming`);
+    }
+    if (successRate < 50) {
+      alerts.push(`⚠️ **LOW AVAILABILITY WARNING**\nHigh demand detected - Check back soon for restocks`);
     }
 
     if (alerts.length > 0) {
       embed.addFields({
-        name: '🚨 Active Alerts',
-        value: alerts.join('\n'),
+        name: '🚨 **ACTIVE ALERTS**',
+        value: alerts.join('\n\n'),
         inline: false
       });
     }
 
+    // Quick commands reference
+    embed.addFields({
+      name: '💡 **QUICK COMMANDS**',
+      value: `• **\`/status\`** - View detailed status\n` +
+             `• **Admin Panel** - Status control buttons\n` +
+             `• **Auto-updates** - No manual refresh needed`,
+      inline: false
+    });
+
     return embed;
+  }
+
+  function formatGameName(game) {
+    const names = {
+      'marvelrivals': 'Marvel Rivals',
+      'huntshowdown': 'Hunt Showdown',
+      'hellletloose': 'Hell Let Loose',
+      'honkaistarrail': 'Honkai Star Rail',
+      'fortnite': 'Fortnite',
+      'apexlegends': 'Apex Legends',
+      'cs2': 'CS2',
+      'dayz': 'DayZ',
+      'deadbydaylight': 'Dead By Daylight',
+      'gtav': 'GTA V',
+      'valorant': 'Valorant',
+      'pubg': 'PUBG',
+      'dota2': 'Dota 2',
+      'warzone': 'Warzone',
+      'bo7': 'Black Ops 7',
+      'arenabreakout': 'Arena Breakout',
+      'deltaforce': 'Delta Force',
+      'deadlock': 'Deadlock',
+      'fragpunk': 'Fragpunk',
+      'mobilegames': 'Mobile Games',
+      'genshinimpact': 'Genshin Impact',
+      'fivem': 'FiveM',
+      'callofduty': 'Call of Duty',
+      'arcraiders': 'Arc Raiders',
+      'battlefield': 'Battlefield',
+      'spoofer': 'HWID Spoofer',
+      'tools': 'Tools & Utilities',
+      'othergames': 'Other Games',
+      'dma': 'DMA Hardware',
+      'escapefromtarkov': 'Escape From Tarkov'
+    };
+    return names[game] || game.charAt(0).toUpperCase() + game.slice(1);
   }
 
   // Initial update after 10 seconds
   setTimeout(updateStatus, 10000);
 
-  // Set up recurring updates
-  const updateIntervalMs = 300000; // 5 minutes
+  // Set up recurring updates - every 2 minutes for better responsiveness
+  const updateIntervalMs = 120000; // 2 minutes (was 5 minutes)
   updateInterval = setInterval(updateStatus, updateIntervalMs);
 
-  console.log(`[✅] Status auto-update system started (interval: ${updateIntervalMs/1000} seconds)`);
+  console.log(`[✅] Enhanced status auto-update system started (interval: ${updateIntervalMs/1000} seconds)`);
+  console.log('[INFO] Status updates will run automatically - no manual /status command needed!');
 
   // Handle shutdown gracefully
-  process.on('SIGINT', () => {
+  const shutdownHandler = (signal) => {
     if (updateInterval) {
       clearInterval(updateInterval);
-      console.log('[INFO] Status auto-update stopped');
+      console.log(`[INFO] Status auto-update stopped (${signal})`);
     }
-  });
+  };
 
-  process.on('SIGTERM', () => {
-    if (updateInterval) {
-      clearInterval(updateInterval);
-      console.log('[INFO] Status auto-update stopped');
-    }
-  });
+  process.on('SIGINT', () => shutdownHandler('SIGINT'));
+  process.on('SIGTERM', () => shutdownHandler('SIGTERM'));
 }

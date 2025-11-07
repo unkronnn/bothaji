@@ -1,5 +1,4 @@
 const { EmbedBuilder } = require('discord.js');
-const config = require('../config/config.json');
 
 module.exports = {
     customId: 'starpubgm', // Ganti dengan customId yang sesuai

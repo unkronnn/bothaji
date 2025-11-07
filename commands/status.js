@@ -13,18 +13,34 @@ module.exports = {
 
             // Read status data
             const statusFile = path.join(__dirname, '../config/cheatStatus.json');
-            let statusData;
 
+            if (!fs.existsSync(statusFile)) {
+                await interaction.editReply({
+                    content: '❌ | Status system not configured. Use `/setupstatus` first.',
+                    ephemeral: true
+                });
+                return;
+            }
+
+            let statusData;
             try {
                 statusData = JSON.parse(fs.readFileSync(statusFile, 'utf8'));
             } catch (error) {
-                // Fallback if file doesn't exist
-                statusData = {
-                    globalSettings: {
-                        autoUpdate: true,
-                        updateInterval: 300000
-                    }
-                };
+                console.error('Error parsing cheat status file:', error);
+                await interaction.editReply({
+                    content: '❌ | Status data corrupted. Please contact admin.',
+                    ephemeral: true
+                });
+                return;
+            }
+
+            // Validate status data structure
+            if (!statusData || typeof statusData !== 'object') {
+                await interaction.editReply({
+                    content: '❌ | Invalid status data format.',
+                    ephemeral: true
+                });
+                return;
             }
 
             const embed = createStatusEmbed(statusData, interaction.client);
@@ -34,14 +50,14 @@ module.exports = {
         } catch (error) {
             console.error('Error in status command:', error);
             await interaction.editReply({
-                content: '❌ | Failed to load cheat status. Please try again later.',
+                content: '❌ | Failed to load cheat status. Please try again later.\nError: ' + error.message,
                 ephemeral: true
             });
         }
     },
 };
 
-function createStatusEmbed(statusData, client) {
+function createStatusEmbed(statusData) {
     let allAvailable = 0;
     let totalCheats = 0;
     const statusCounts = {
@@ -51,172 +67,172 @@ function createStatusEmbed(statusData, client) {
         limited_stock: 0
     };
 
-    const embed = new EmbedBuilder()
-        .setTitle('🎮 Yash Store - Live Cheat Status')
-        .setDescription('Real-time availability status for all game cheats. Updates automatically every 5 minutes.')
-        .setColor('#0099ff')
-        .setThumbnail('https://cdn.discordapp.net/attachments/1412314599637651477/1434088772135424041/file.png.jpeg')
-        .setTimestamp()
-        .setFooter({
-            text: 'Last updated: ' + new Date().toLocaleString() + ' • Refresh with /status',
-            iconURL: client.user.displayAvatarURL()
-        });
+    const gameStatus = {}; // Track status per game for simplified display
 
-    // Process each game category
+    // Calculate statistics and game status
     for (const [game, cheats] of Object.entries(statusData)) {
         if (game === 'globalSettings') continue;
 
-        const gameFields = [];
+        const gameStats = {
+            available: 0,
+            maintenance: 0,
+            out_of_stock: 0,
+            limited_stock: 0,
+            total: 0
+        };
+
         for (const [cheat, info] of Object.entries(cheats)) {
             totalCheats++;
-            if (info.status === 'available') allAvailable++;
+            gameStats.total++;
+            if (info.status === 'available') {
+                allAvailable++;
+                gameStats.available++;
+            }
             statusCounts[info.status] = (statusCounts[info.status] || 0) + 1;
-
-            // Format the cheat status line
-            const lastUpdate = info.lastCheck ? new Date(info.lastCheck).toLocaleDateString() : 'Unknown';
-            gameFields.push(
-                `${getStatusEmoji(info.status)} **${formatCheatName(cheat)}**\n` +
-                `└ _${info.message}_ • *Updated: ${lastUpdate}*`
-            );
+            gameStats[info.status]++;
         }
 
-        if (gameFields.length > 0) {
-            embed.addFields({
-                name: `🎮 ${formatGameName(game)}`,
-                value: gameFields.join('\n\n'),
-                inline: false
-            });
-        }
+        gameStatus[game] = gameStats;
     }
 
-    // Add summary statistics
     const successRate = totalCheats > 0 ? Math.round((allAvailable/totalCheats) * 100) : 0;
 
     // Set embed color based on overall availability
     let overallColor;
-    let overallStatus;
+    let overallStatusEmoji;
     if (successRate >= 80) {
         overallColor = '#00ff00'; // Green
-        overallStatus = '✅ Most Cheats Available';
+        overallStatusEmoji = '🟢';
     } else if (successRate >= 60) {
         overallColor = '#ffaa00'; // Yellow
-        overallStatus = '⚠️ Some Cheats Unavailable';
+        overallStatusEmoji = '🟡';
     } else {
         overallColor = '#ff0000'; // Red
-        overallStatus = '❌ Many Cheats Unavailable';
+        overallStatusEmoji = '🔴';
     }
 
-    embed.setColor(overallColor);
+    const embed = new EmbedBuilder()
+        .setTitle(`${overallStatusEmoji} YASH STORE - COMPREHENSIVE STATUS MONITOR`)
+        .setDescription(
+            `🚀 **Real-time cheat availability** • Automatic updates • ${totalCheats} products monitored across ${Object.keys(gameStatus).length} games\n` +
+            `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`
+        )
+        .setColor(overallColor)
+        .setThumbnail('https://cdn.discordapp.net/attachments/1412314599637651477/1434088772135424041/file.png.jpeg')
+        .setTimestamp()
+        .setFooter({
+            text: `Last Update: ${new Date().toLocaleString()} • Auto-refresh • Yash Store Premium`,
+            iconURL: 'https://cdn.discordapp.net/attachments/1412314599637651477/1434088772135424041/file.png.jpeg'
+        });
 
-    // Add summary and statistics
+    // Simplified Game Status Overview
+    const gameStatusLines = [];
+    for (const [game, stats] of Object.entries(gameStatus)) {
+        const gameName = formatGameName(game);
+        const gameSuccessRate = Math.round((stats.available / stats.total) * 100);
+
+        let statusEmoji;
+        if (gameSuccessRate >= 80) {
+            statusEmoji = '🟢';
+        } else if (gameSuccessRate >= 60) {
+            statusEmoji = '🟡';
+        } else {
+            statusEmoji = '🔴';
+        }
+
+        gameStatusLines.push(`${statusEmoji} **${gameName}**: ${stats.available}/${stats.total} available (${gameSuccessRate}%)`);
+    }
+
     embed.addFields(
         {
-            name: `📊 ${overallStatus}`,
-            value: `**Success Rate:** ${successRate}%\n` +
-                   `**Available:** ${statusCounts.available} / ${totalCheats} cheats\n` +
-                   `**Status Distribution:**\n` +
-                   `${getStatusEmoji('available')} Available: ${statusCounts.available}\n` +
-                   `${getStatusEmoji('maintenance')} Maintenance: ${statusCounts.maintenance}\n` +
-                   `${getStatusEmoji('out_of_stock')} Out of Stock: ${statusCounts.out_of_stock}\n` +
-                   `${getStatusEmoji('limited_stock')} Limited: ${statusCounts.limited_stock}`,
+            name: '📊 **GAME STATUS OVERVIEW**',
+            value: gameStatusLines.join('\n'),
+            inline: false
+        },
+        {
+            name: '📈 **SYSTEM STATISTICS**',
+            value: `✅ **Available:** ${statusCounts.available} products\n` +
+                   `🔧 **Maintenance:** ${statusCounts.maintenance} products\n` +
+                   `❌ **Out of Stock:** ${statusCounts.out_of_stock} products\n` +
+                   `⚠️ **Limited Stock:** ${statusCounts.limited_stock} products\n\n` +
+                   `🎯 **Overall Success Rate:** ${successRate}% (${allAvailable}/${totalCheats})`,
             inline: true
         },
         {
-            name: 'ℹ️ Information',
-            value: `**Last Check:** ${new Date().toLocaleString()}\n` +
-                   `**Auto-Update:** ${statusData.globalSettings?.autoUpdate ? 'Enabled' : 'Disabled'}\n` +
-                   `**Update Interval:** Every 5 minutes\n` +
-                   `**Status Source:** Live monitoring`,
+            name: '⚙️ **SYSTEM PERFORMANCE**',
+            value: `🔄 **Next Update:** <t:${Math.floor(Date.now() / 1000) + 120}:R>\n` +
+                   `⚡ **Update Speed:** Instant\n` +
+                   `🕐 **Interval:** Every 2 minutes\n` +
+                   `🌟 **System Health:** Online`,
             inline: true
         }
     );
 
-    // Add legend and help information
-    embed.addFields(
-        {
-            name: '🔔 Notifications',
-            value: `• Status updates are real-time\n` +
-                   `• Maintenance usually lasts 1-3 hours\n` +
-                   `• Out of stock items restock regularly\n` +
-                   `• Limited stock sells out quickly`,
-            inline: false
-        },
-        {
-            name: '💡 Quick Tips',
-            value: `• Use \`/status\` to check live availability\n` +
-                   `• Contact staff for restock notifications\n` +
-                   `• Check back frequently for updates\n` +
-                   `• Available cheats are ready for instant delivery`,
-            inline: false
-        }
-    );
-
-    // Add promotion or important notice
+    // Special alerts section
+    const alerts = [];
     if (statusCounts.limited_stock > 0) {
-        embed.addFields(
-            {
-                name: '🚨 Limited Stock Alert!',
-                value: `${getStatusEmoji('limited_stock')} **${statusCounts.limited_stock} cheat(s)** currently have limited stock available. Purchase now before they run out!`,
-                inline: false
-            }
-        );
+        alerts.push(`🔥 **LIMITED STOCK FLASH SALE!**\n${statusCounts.limited_stock} products with limited availability - Act fast!`);
+    }
+    if (statusCounts.maintenance > 0) {
+        alerts.push(`🔧 **MAINTENANCE IN PROGRESS**\n${statusCounts.maintenance} products temporarily unavailable - Updates incoming`);
+    }
+    if (successRate < 50) {
+        alerts.push(`⚠️ **LOW AVAILABILITY WARNING**\nHigh demand detected - Check back soon for restocks`);
     }
 
-    if (statusCounts.maintenance > 0) {
-        embed.addFields(
-            {
-                name: '🔧 Maintenance Notice',
-                value: `${getStatusEmoji('maintenance')} **${statusCounts.maintenance} cheat(s)** are currently under maintenance for updates and improvements.`,
-                inline: false
-            }
-        );
+    if (alerts.length > 0) {
+        embed.addFields({
+            name: '🚨 **ACTIVE ALERTS**',
+            value: alerts.join('\n\n'),
+            inline: false
+        });
     }
+
+    // Quick commands reference
+    embed.addFields({
+        name: '💡 **QUICK COMMANDS**',
+        value: `• **\`/status\`** - View this detailed status\n` +
+               `• **Admin Panel** - Status control buttons\n` +
+               `• **Auto-updates** - No manual refresh needed\n` +
+               `• **Total Games**: ${Object.keys(gameStatus).length} • **Total Products**: ${totalCheats}`,
+        inline: false
+    });
 
     return embed;
-}
-
-function getStatusEmoji(status) {
-    const emojis = {
-        available: '✅',
-        maintenance: '🔧',
-        out_of_stock: '❌',
-        limited_stock: '⚠️'
-    };
-    return emojis[status] || '❓';
-}
-
-function formatCheatName(cheat) {
-    const names = {
-        'byster_marvelrivals': 'Byster',
-        'unicore_marvelrivals': 'Unicore',
-        'ancient_marvelrivals': 'Ancient',
-        'stern_marvelrivals': 'Stern',
-        'bc_marvelrivals': 'BC',
-        'lexy_marvelrivals': 'Lexy',
-        'pussycat_marvelrivals': 'PussyCat',
-        'smg_marvelrivals': 'SMG',
-        'phoenix_huntshowdown': 'Phoenix',
-        'lexy_huntshowdown': 'Lexy',
-        'ancient_huntshowdown': 'Ancient',
-        'stern_huntshowdown': 'Stern',
-        'mason_huntshowdown': 'Mason',
-        'smg_huntshowdown': 'SMG',
-        'lexy_hll': 'Lexy',
-        'stern_hll': 'Stern',
-        'pussycat_hll': 'PussyCat',
-        'mason_hll': 'Mason',
-        'smg_hll': 'SMG',
-        'unicore_honkaistarrail': 'Unicore'
-    };
-    return names[cheat] || cheat.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
 }
 
 function formatGameName(game) {
     const names = {
         'marvelrivals': 'Marvel Rivals',
-        'huntshowdown': 'Hunt: Showdown',
+        'huntshowdown': 'Hunt Showdown',
         'hellletloose': 'Hell Let Loose',
-        'honkaistarrail': 'Honkai: Star Rail'
+        'honkaistarrail': 'Honkai Star Rail',
+        'fortnite': 'Fortnite',
+        'apexlegends': 'Apex Legends',
+        'cs2': 'CS2',
+        'dayz': 'DayZ',
+        'deadbydaylight': 'Dead By Daylight',
+        'gtav': 'GTA V',
+        'valorant': 'Valorant',
+        'pubg': 'PUBG',
+        'dota2': 'Dota 2',
+        'warzone': 'Warzone',
+        'bo7': 'Black Ops 7',
+        'arenabreakout': 'Arena Breakout',
+        'deltaforce': 'Delta Force',
+        'deadlock': 'Deadlock',
+        'fragpunk': 'Fragpunk',
+        'mobilegames': 'Mobile Games',
+        'genshinimpact': 'Genshin Impact',
+        'fivem': 'FiveM',
+        'callofduty': 'Call of Duty',
+        'arcraiders': 'Arc Raiders',
+        'battlefield': 'Battlefield',
+        'spoofer': 'HWID Spoofer',
+        'tools': 'Tools & Utilities',
+        'othergames': 'Other Games',
+        'dma': 'DMA Hardware',
+        'escapefromtarkov': 'Escape From Tarkov'
     };
     return names[game] || game.charAt(0).toUpperCase() + game.slice(1);
 }

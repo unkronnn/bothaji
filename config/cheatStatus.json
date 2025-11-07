@@ -1,37 +1,277 @@
 {
   "marvelrivals": {
-    "byster_marvelrivals": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - All features working" },
-    "unicore_marvelrivals": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Working perfectly" },
-    "ancient_marvelrivals": { "status": "maintenance", "lastCheck": "2025-01-07T09:30:00Z", "message": "Under maintenance - ETA 2 hours" },
-    "stern_marvelrivals": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Lifetime option available" },
-    "bc_marvelrivals": { "status": "out_of_stock", "lastCheck": "2025-01-07T08:45:00Z", "message": "Out of stock - Restocking soon" },
-    "lexy_marvelrivals": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - StreamProof active" },
+    "byster_marvelrivals": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced features & customization" },
+    "bc_marvelrivals": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Lifetime option & flash support" },
+    "lexy_marvelrivals": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - StreamProof & built-in spoofer" },
     "pussycat_marvelrivals": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Most affordable option" },
-    "smg_marvelrivals": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced customization" }
+    "smg_marvelrivals": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Premium protection" },
+    "stern_marvelrivals": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Lifetime option available" },
+    "ancient_marvelrivals": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced aimbot" },
+    "unicore_marvelrivals": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Internal technology" }
+  },
+  "fortnite": {
+    "ambani_fortnite": { "status": "limited_stock", "lastCheck": "2025-01-07T09:00:00Z", "message": "Limited Stock - High demand" },
+    "ancient_fortnite": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced features" },
+    "bc_fortnite": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Premium features" },
+    "btg_fortnite": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Battle ready" },
+    "lexy_fortnite": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - StreamProof" },
+    "fecurity_fortnite": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Professional grade" },
+    "xprojectff": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced technology" }
+  },
+  "apexlegends": {
+    "btg_apexlegends": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Premium features" },
+    "mason_apexlegends": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced aimbot" },
+    "lexy_apexlegends": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - StreamProof" },
+    "phoenix_apexlegends": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Comprehensive ESP" },
+    "stern_apexlegends": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Lifetime option" },
+    "fecurity_apexlegends": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Professional grade" },
+    "ancient_apexlegends": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced technology" }
+  },
+  "cs2": {
+    "aquila_cs2": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced features" },
+    "bc_cs2": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Premium protection" },
+    "mason_cs2": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced aimbot" },
+    "smg_cs2": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Battle mode" },
+    "stern_cs2": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Lifetime option" },
+    "ovix_cs2": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Premium features" },
+    "fecurity_cs2": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Professional grade" },
+    "macro_cs2": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Macro script" }
+  },
+  "dayz": {
+    "ancient_dayz": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced features" },
+    "avalanche_dayz": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Premium protection" },
+    "btg_dayz": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Battle ready" },
+    "byster_dayz": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced ESP" },
+    "collapse_dayz": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - StreamProof" },
+    "dullwave_dayz": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Premium features" },
+    "lexy_dayz": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Premium protection" },
+    "mason_dayz": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced features" },
+    "medusa_dayz": { "status": "limited_stock", "lastCheck": "2025-01-07T09:00:00Z", "message": "Limited Stock - High performance" },
+    "pussycat_dayz": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Affordable option" },
+    "vision_dayz": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced technology" },
+    "crookedarms_dayz": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Professional grade" }
   },
   "huntshowdown": {
-    "phoenix_huntshowdown": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - All features working" },
-    "lexy_huntshowdown": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Premium protection" },
     "ancient_huntshowdown": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced aimbot" },
-    "stern_huntshowdown": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Lifetime available" },
-    "mason_huntshowdown": { "status": "out_of_stock", "lastCheck": "2025-01-07T06:20:00Z", "message": "Out of stock - Restocking tomorrow" },
-    "smg_huntshowdown": { "status": "maintenance", "lastCheck": "2025-01-07T07:15:00Z", "message": "Under maintenance - Update in progress" }
+    "lexy_huntshowdown": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Premium protection" },
+    "mason_huntshowdown": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Zoom features" },
+    "phoenix_huntshowdown": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Comprehensive ESP" },
+    "smg_huntshowdown": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Battle mode" },
+    "stern_huntshowdown": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Lifetime option" }
   },
   "hellletloose": {
     "lexy_hll": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Built-in spoofer" },
-    "stern_hll": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Lifetime option" },
-    "pussycat_hll": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Affordable pricing" },
-    "mason_hll": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Detailed ESP" },
-    "smg_hll": { "status": "out_of_stock", "lastCheck": "2025-01-07T05:30:00Z", "message": "Out of stock - High demand" }
+    "mason_hll": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Detailed information" },
+    "pussycat_hll": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - StreamProof" },
+    "smg_hll": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Speedhack features" },
+    "stern_hll": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Multi-client support" }
   },
   "honkaistarrail": {
     "unicore_honkaistarrail": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - 15x battle speed" }
+  },
+  "deadbydaylight": {
+    "byster_dbd": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced features" },
+    "collapse_dbd": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Premium protection" },
+    "fkn_dbd": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced ESP" },
+    "ghost_dbd": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - StreamProof" },
+    "lexy_dbd": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Premium features" },
+    "pussycat_dbd": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Affordable option" },
+    "smg_dbd": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced technology" },
+    "stern_dbd": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Lifetime option" },
+    "fecurity_dbd": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Professional grade" }
+  },
+  "gtav": {
+    "ovix_gtav": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced features" },
+    "mason_gtav": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Premium protection" }
+  },
+  "valorant": {
+    "oracle_valorant_spoofer": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - HWID Spoofer" },
+    "valorant_colorbot": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Color aimbot" },
+    "macro_valorant": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Macro script" }
+  },
+  "pubg": {
+    "goldenpubgm": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Mobile version" },
+    "oasispubgm": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Mobile hack" },
+    "starpubgm": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Premium mobile" },
+    "vnhaxpubgm": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Vietnam version" },
+    "zoonpubgm": { "status": "limited_stock", "lastCheck": "2025-01-07T09:00:00Z", "message": "Limited Stock - High demand" },
+    "macro_pubg": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Macro script" },
+    "shieldpubgmandro": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Shield version" }
+  },
+  "dota2": {
+    "umbrella_dota2": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced features" },
+    "melonity_dota2": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Premium protection" }
+  },
+  "escapefromtarkov": {
+    "ancient_eftchams": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced chams" },
+    "avalanche_eft": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced features" },
+    "collapse_eft": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Premium protection" },
+    "vision_eft": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced technology" },
+    "crookedarms_eft": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Professional grade" }
+  },
+  "warzone": {
+    "ancient_bo6wz": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - BO6 Warzone features" },
+    "crookedarms_bo6wz": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Professional grade" },
+    "dullwave_bo6wz": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced technology" },
+    "fecurity_bo6wz": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Premium protection" },
+    "mason_bo6wz": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced aimbot" },
+    "pussycat_bo6wz": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Premium features" }
+  },
+  "bo7": {
+    "crookedarms_bo7": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced technology" },
+    "fecurity_bo7": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Professional grade" },
+    "fkn_bo6": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced ESP" },
+    "lexy_bo6": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Premium protection" },
+    "pussycat_bo7": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - BO7 features" }
+  },
+  "arenabreakout": {
+    "btg_arenabreakout": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced features" },
+    "crookedarc_arenabreakout": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Premium protection" },
+    "dullwave_arenabreakout": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - StreamProof" },
+    "fecurity_arenabreakout": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Professional grade" },
+    "ghost_arenabreakout": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced ESP" },
+    "lexy_arenabreakout": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Premium features" },
+    "mason_arenabreakout": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Battle ready" },
+    "avalanche_arenabreakout": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced technology" }
+  },
+  "deltaforce": {
+    "btg_deltaforce": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced features" },
+    "crookedarms_deltaforce": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Professional grade" },
+    "dullwave_deltaforce": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - StreamProof" },
+    "fecurity_deltaforce": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Premium protection" },
+    "ghost_deltaforce": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced ESP" },
+    "lexy_deltaforce": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Premium features" },
+    "vsharp_deltaforce": { "status": "limited_stock", "lastCheck": "2025-01-07T09:00:00Z", "message": "Limited Stock - High performance" },
+    "ancient_deltaforce": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced technology" }
+  },
+  "deadlock": {
+    "bc_deadlock": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced features" },
+    "byster_deadlock": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Premium protection" },
+    "medusa_deadlock": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - StreamProof" },
+    "umbrella_deadlock": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced technology" }
+  },
+  "fragpunk": {
+    "bc_fragpunk": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced features" },
+    "byster_fragpunk": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Premium protection" },
+    "fecurity_fragpunk": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Professional grade" },
+    "macro_finals": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - The Cycle" }
+  },
+  "mobilegames": {
+    "fluoritemlbbios": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - iOS version" },
+    "gbd8bpios": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - 8 Ball Pool iOS" },
+    "gbdmlbbios": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Premium iOS" },
+    "gbdmlbbandroid": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Android version" },
+    "gbdcodmandroid": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - COD Mobile Android" },
+    "gbdbloodstrike": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Blood Strike" },
+    "gbddfm": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - DFM Mobile" },
+    "gbdff": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - FF Mobile" },
+    "gbdpubgmandro": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - PUBG Mobile Android" },
+    "morellacodm": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - COD Mobile" },
+    "morellamlbbandro": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Mobile Legends Android" },
+    "pixelmlbbandroid": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Pixel MLBB" },
+    "starmlbbios": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced iOS" },
+    "wolf8bpandroid": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - 8 Ball Pool Android" },
+    "wolf8bpios": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - 8 Ball Pool iOS" },
+    "wolfdfm": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - DFM" },
+    "wolfmlbbandroid": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - MLBB Android" },
+    "snake8bpandroid": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - 8 Ball Pool Snake" },
+    "gp+aovandroid": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - AOV Android" },
+    "gp+bloodstrike": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Blood Strike" },
+    "gp+codmandroid": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - COD Mobile Android" },
+    "gp+hokandroid": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - HoK Android" },
+    "codmglios": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - COD Mobile iOS" },
+    "starandro": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Star Android" }
+  },
+  "genshinimpact": {
+    "unicore_genshinimpact": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced features" }
+  },
+  "fivem": {
+    "ambani_fivem": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Premium protection" },
+    "ancient_albiononline": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - FiveM features" },
+    "byster_albiononline": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced ESP" },
+    "keyser_fivem": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced features" },
+    "mason_albiononline": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Premium protection" },
+    "unicore_fivem": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Professional grade" }
+  },
+  "callofduty": {
+    "fecurity_cod": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Professional grade" },
+    "fecurity_battlefield": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Battlefield series" }
+  },
+  "arcraiders": {
+    "crookedarc_arcraiders": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced technology" },
+    "fecurity_arcraiders": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Professional grade" }
+  },
+  "battlefield": {
+    "ancient_battlefield": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced features" },
+    "btg_battlefield6": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Battlefield 6" },
+    "crookedarc_battlefield2042": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Battlefield 2042" },
+    "crookedarc_battlefield6": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Battlefield 6" },
+    "mason_battlefield1": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Battlefield 1" }
+  },
+  "spoofer": {
+    "divinium_perm_spoofer": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Permanent spoofer" },
+    "divinium_temp_spoofer": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Temporary spoofer" },
+    "tpm_bypass_sc": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - TPM bypass" }
+  },
+  "tools": {
+    "macro_aio": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - All-in-one macro" },
+    "macro_apex": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Apex macro" },
+    "macro_r6s": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Rainbow Six macro" },
+    "macro_rust": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Rust macro" },
+    "universal_ai_aimbot": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Universal AI aimbot" },
+    "lagswitch_purchase": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Lag switch" },
+    "crossout": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Crossout game" },
+    "aiaimbot": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - AI aimbot" }
+  },
+  "othergames": {
+    "aquila_farlight84": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Farlight 84" },
+    "bc_battlebit": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Battlebit" },
+    "bc_dnd": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - D&D" },
+    "bloodhunt": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Bloodhunt" },
+    "dripff": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Drip FF" },
+    "dp+dfm": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - DP+DFM" },
+    "duneawakening": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Dune Awakening" },
+    "etheriarestart": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Etheria Restart" },
+    "farlight84": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Farlight 84" },
+    "fkn_armareforger": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Arma Reforger" },
+    "fkn_deeprockgalactic": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Deep Rock Galactic" },
+    "fkn_duneawakening": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Dune Awakening" },
+    "fkn_farlight84": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Farlight 84" },
+    "fkn_gzw": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Gray Zone Warfare" },
+    "fluoriteff": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Fluorite FF" },
+    "fecurity_bloodhunt": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Bloodhunt" },
+    "fecurity_battlebit": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Battlebit" },
+    "fecurity_deadside": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Deadside" },
+    "fecurity_dnd": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - D&D" },
+    "fecurity_gzw": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Gray Zone Warfare" },
+    "lexy_deadside": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Deadside" },
+    "lexy_duneawakening": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Dune Awakening" },
+    "lexy_gzw": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Gray Zone Warfare" },
+    "lexy_mw3": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - MW3" },
+    "mason_arma3": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Arma 3" },
+    "mason_battlefield1": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Battlefield 1" },
+    "mason_bo6wz": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - BO6 Warzone" },
+    "mason_caliber": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Caliber" },
+    "pussycat_arksurvival": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Ark Survival" },
+    "pussycat_dnd": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - D&D" },
+    "pussycat_duneawakening": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Dune Awakening" },
+    "pussycat_gzw": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Gray Zone Warfare" },
+    "smg_arksurvival": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Ark Survival" },
+    "smg_arma3": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Arma 3" },
+    "smg_eftradar": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - EFT Radar" },
+    "stern_duneawakening": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Dune Awakening" },
+    "unicore_etheriarestart": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Etheria Restart" },
+    "xeindfm": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - XEI DFM" }
+  },
+  "dma": {
+    "dma_bundle_kmbox": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - DMA Bundle KMBox" },
+    "dma_bundle_makcu": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - DMA Bundle Makcu" }
   },
   "globalSettings": {
     "statusChannelId": "YOUR_STATUS_CHANNEL_ID",
     "adminChannelId": "YOUR_ADMIN_CHANNEL_ID",
     "autoUpdate": true,
-    "updateInterval": 300000,
+    "updateInterval": 120000,
     "statusMessageId": null
   }
 }
