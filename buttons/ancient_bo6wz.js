@@ -164,7 +164,7 @@ A premium product for Call of Duty Warzone, Black Ops 6 & Black Ops 7 from Ancie
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

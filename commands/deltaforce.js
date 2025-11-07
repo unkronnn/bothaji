@@ -87,7 +87,7 @@ module.exports = {
             console.error('Error in deltaforce command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the Delta Force cheat collection',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

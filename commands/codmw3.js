@@ -67,7 +67,7 @@ module.exports = {
             console.error('Error in codmw3 command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the Call of Duty cheat information',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

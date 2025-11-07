@@ -57,7 +57,7 @@ module.exports = {
             console.error('Error in albiononline command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the Albion Online cheat collection',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

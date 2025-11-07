@@ -107,7 +107,7 @@ A premium product for the game GTA V (Five M) from Keyser Software group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

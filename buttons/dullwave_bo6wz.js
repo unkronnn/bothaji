@@ -120,7 +120,7 @@ A premium product for Black Ops 6 / Warzone from DullWave group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

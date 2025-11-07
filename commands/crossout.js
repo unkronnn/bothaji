@@ -55,7 +55,7 @@ module.exports = {
             console.error('Error in crossout command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the CrossOut product information',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

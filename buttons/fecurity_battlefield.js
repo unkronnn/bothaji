@@ -138,7 +138,7 @@ A premium product for the game Battlefield 2042, Battlefield 1, Battlefield 5 & 
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

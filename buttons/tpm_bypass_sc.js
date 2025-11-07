@@ -72,7 +72,7 @@ We sell source code, suitable for developers/sellers who want to be part of your
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

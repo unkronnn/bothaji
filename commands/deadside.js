@@ -57,7 +57,7 @@ module.exports = {
             console.error('Error in deadside command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the Deadside cheat collection',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

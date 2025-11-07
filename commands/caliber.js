@@ -57,7 +57,7 @@ module.exports = {
             console.error('Error in caliber command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the Caliber cheat information',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

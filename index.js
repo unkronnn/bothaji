@@ -6,6 +6,29 @@ const path = require('path');
 const config = require('./config/config.json');
 require('dotenv').config();
 
+// Handle uncaught exceptions
+process.on('uncaughtException', (error) => {
+  console.error('[❌] Uncaught Exception:', error);
+  process.exit(1);
+});
+
+// Handle unhandled promise rejections
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('[❌] Unhandled Rejection at:', promise, 'reason:', reason);
+  process.exit(1);
+});
+
+// Handle process termination gracefully
+process.on('SIGINT', () => {
+  console.log('\n[INFO] Received SIGINT. Gracefully shutting down...');
+  process.exit(0);
+});
+
+process.on('SIGTERM', () => {
+  console.log('\n[INFO] Received SIGTERM. Gracefully shutting down...');
+  process.exit(0);
+});
+
 function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -124,6 +147,12 @@ function delay(ms) {
   });
 
   // Login to Discord
-  await client.login(process.env.DISCORD_TOKEN);
-  console.log('[✅] Presence set successfully.');
+  try {
+    await client.login(process.env.DISCORD_TOKEN);
+    console.log('[✅] Presence set successfully.');
+  } catch (error) {
+    console.error('[❌] Failed to login to Discord:');
+    console.error(error.message);
+    process.exit(1);
+  }
 })();

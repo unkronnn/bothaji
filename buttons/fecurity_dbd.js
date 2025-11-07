@@ -123,7 +123,7 @@ A premium product for the game Dead By Daylight from Fecurity group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

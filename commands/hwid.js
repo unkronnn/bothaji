@@ -62,7 +62,7 @@ module.exports = {
             console.error('Error in hwid command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the HWID Spoofer collection',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

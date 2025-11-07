@@ -69,7 +69,7 @@ module.exports = {
             console.error('Error in duneawakening command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the Dune: Awakening cheat collection',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

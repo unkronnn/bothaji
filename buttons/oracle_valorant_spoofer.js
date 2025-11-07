@@ -77,7 +77,7 @@ Tired of complicated setups, bricked motherboards, hardware compatibility issues
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

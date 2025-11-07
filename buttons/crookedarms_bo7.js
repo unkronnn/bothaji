@@ -198,7 +198,7 @@ A premium product for Call of Duty Black Ops 7 from Crooked Arm's group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

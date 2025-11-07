@@ -51,7 +51,7 @@ module.exports = {
             console.error('Error in lagswitch command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the LagSwitch information',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

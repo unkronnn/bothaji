@@ -19,6 +19,6 @@ module.exports = {
         iconURL: interaction.client.user.displayAvatarURL()
       });
 
-      await interaction.reply({ embeds: [embed], components: [], ephemeral: true });
+      await interaction.reply({ embeds: [embed], components: [], flags: [64] });
     },
 };

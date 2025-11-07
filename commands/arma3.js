@@ -51,7 +51,7 @@ module.exports = {
             console.error('Error in arma3 command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the Arma 3 cheat collection',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

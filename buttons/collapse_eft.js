@@ -135,7 +135,7 @@ A premium product for the game Escape From Tarkov from Collapse group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

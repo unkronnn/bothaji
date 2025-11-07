@@ -55,7 +55,7 @@ module.exports = {
             console.error('Error in remotesupport command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the Remote Support packages',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

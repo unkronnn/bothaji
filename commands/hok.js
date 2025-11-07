@@ -42,7 +42,7 @@ module.exports = {
             console.error('Error in hok command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the Honor of Kings product list',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

@@ -81,7 +81,7 @@ module.exports = {
             console.error('Error in apexlegendpc command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the Apex Legends cheat collection',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

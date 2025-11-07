@@ -79,7 +79,7 @@ module.exports = {
 
   async execute(interaction) {
     try {
-      await interaction.deferReply({ ephemeral: true });
+      await interaction.deferReply({ flags: [64] });
 
       if (!await validatePermissions(interaction)) {
         return;
@@ -290,7 +290,7 @@ function createResponseEmbed({ type = 'INFO', title, description, fields = [], f
     embed.setFooter({ text: footer });
   }
 
-  return { embeds: [embed], ephemeral: true };
+  return { embeds: [embed], flags: [64] };
 }
 
 async function sendFeedbackMessage(interaction, buyer) {

@@ -115,7 +115,7 @@ A premium product for the game Arena Breakout: Infinite from Break The Game grou
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

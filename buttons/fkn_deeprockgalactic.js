@@ -146,7 +146,7 @@ A premium product for the game Deep Rock Galactic from FKN group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

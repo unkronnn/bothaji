@@ -121,7 +121,7 @@ A premium product for the game FragPunk from Byster group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

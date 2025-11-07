@@ -149,7 +149,7 @@ A premium product for Counter Strike 2 from Mason group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

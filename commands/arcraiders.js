@@ -51,7 +51,7 @@ module.exports = {
             console.error('Error in arcraiders command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the Arc Raiders cheat collection',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

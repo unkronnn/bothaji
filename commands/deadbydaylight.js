@@ -93,7 +93,7 @@ module.exports = {
             console.error('Error in deadbydaylight command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the Dead By Daylight cheat collection',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

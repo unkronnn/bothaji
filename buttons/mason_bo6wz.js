@@ -153,7 +153,7 @@ A premium product for Call of Duty Black Ops 6 / Warzone from Mason group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

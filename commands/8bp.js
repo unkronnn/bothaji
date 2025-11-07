@@ -60,7 +60,7 @@ module.exports = {
             console.error('Error in 8bp command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the 8BP product list',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

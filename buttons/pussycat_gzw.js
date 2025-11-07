@@ -105,7 +105,7 @@ A premium product for the game Gray Zone Warfare from PussyCat group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

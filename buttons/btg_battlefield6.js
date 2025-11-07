@@ -114,7 +114,7 @@ A premium product for the game Battlefield 6 from Break The Game group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

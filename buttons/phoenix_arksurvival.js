@@ -126,7 +126,7 @@ A premium product for the game ARK: Survival Evolved from the Phoenix group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

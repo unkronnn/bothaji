@@ -42,7 +42,7 @@ module.exports = {
             console.error('Error in aov command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the AOV/ROV product list',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

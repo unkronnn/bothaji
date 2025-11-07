@@ -141,7 +141,7 @@ A premium product for the game Hell Let Loose from Mason group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

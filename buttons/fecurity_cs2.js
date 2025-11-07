@@ -158,7 +158,7 @@ A premium product for Counter Strike 2 from Fecurity group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

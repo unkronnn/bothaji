@@ -106,7 +106,7 @@ A premium product for the game Deadside from PussyCat group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

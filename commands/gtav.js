@@ -69,7 +69,7 @@ module.exports = {
             console.error('Error in gtav command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the GTA V cheat collection',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

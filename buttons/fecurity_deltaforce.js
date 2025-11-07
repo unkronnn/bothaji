@@ -121,7 +121,7 @@ A premium product for the game Delta Force: Hawk Ops from Fecurity group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

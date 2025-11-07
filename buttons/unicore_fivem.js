@@ -154,7 +154,7 @@ A premium product for the game GTA 5 from Unicore group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

@@ -90,7 +90,7 @@ Combines external and internal technologies for maximum performance and stabilit
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

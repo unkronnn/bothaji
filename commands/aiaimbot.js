@@ -51,7 +51,7 @@ module.exports = {
             console.error('Error in aiaimbot command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the AI Aimbot collection',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

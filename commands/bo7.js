@@ -76,7 +76,7 @@ module.exports = {
             console.error('Error in bo7 command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the Black Ops 7 cheat information',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

@@ -106,7 +106,7 @@ A premium product for the game Farlight 84 from FKN group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

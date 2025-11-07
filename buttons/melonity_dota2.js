@@ -210,7 +210,7 @@ A premium product for the game Dota 2 from Melonity group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

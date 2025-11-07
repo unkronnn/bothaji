@@ -155,7 +155,7 @@ A premium product for COD BO6 / BO7 / MW3 / WZ from Fecurity group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

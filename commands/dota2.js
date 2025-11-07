@@ -51,7 +51,7 @@ module.exports = {
             console.error('Error in dota2 command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the Dota 2 cheat collection',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

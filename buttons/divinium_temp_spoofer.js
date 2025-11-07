@@ -62,7 +62,7 @@ A temporary spoofer changes your device's HWID only while it's powered on. The o
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

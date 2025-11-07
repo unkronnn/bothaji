@@ -56,7 +56,7 @@ module.exports = {
             console.error('Error in bloodhunt command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the BloodHunt cheat information',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

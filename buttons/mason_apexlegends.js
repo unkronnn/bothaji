@@ -115,7 +115,7 @@ A premium product for the game Apex Legend from Mason group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

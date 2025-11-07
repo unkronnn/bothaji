@@ -121,7 +121,7 @@ A premium product for COD Black Ops 6 / Warzone / Black Ops 7 from PussyCat grou
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

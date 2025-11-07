@@ -112,7 +112,7 @@ A premium product for the game Battlefield 1 from Mason group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

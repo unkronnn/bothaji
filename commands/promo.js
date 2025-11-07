@@ -71,7 +71,7 @@ module.exports = {
 		const memberRoles = interaction.member.roles.cache;
 
 		if (!memberRoles.some(role => allowedRoles.includes(role.id))) {
-			return interaction.reply({ content: '`❌` | Anda tidak memiliki izin.', ephemeral: true });
+			return interaction.reply({ content: '`❌` | Anda tidak memiliki izin.', flags: [64] });
 		}
 
 		const productName = interaction.options.getString('product_name');
@@ -89,7 +89,7 @@ module.exports = {
 		if (durationInput && !endTime) {
 			return interaction.reply({
 				content: '`❌` | Format durasi tidak valid (gunakan: 1d, 2h, dst)',
-				ephemeral: true
+				flags: [64]
 			});
 		}
 
@@ -144,7 +144,7 @@ module.exports = {
 		if (!promoChannel) {
 			return interaction.reply({
 				content: '`❌` | Saluran promosi tidak ditemukan.',
-				ephemeral: true
+				flags: [64]
 			});
 		}
 
@@ -155,7 +155,7 @@ module.exports = {
 
 		await interaction.reply({
 			content: '`✅` | Promosi berhasil dikirim!',
-			ephemeral: true
+			flags: [64]
 		});
 	},
 };

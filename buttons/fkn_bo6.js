@@ -126,7 +126,7 @@ A premium product for Call of Duty Black Ops 6 from FKN group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

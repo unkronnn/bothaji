@@ -34,7 +34,7 @@ module.exports = {
     if (!memberRoles.some(role => allowedRoles.includes(role.id))) {
       return interaction.reply({
         content: '`❌` | Oops! You do not have permission to use this command.',
-        ephemeral: true
+        flags: [64]
       });
     }
 
@@ -47,7 +47,7 @@ module.exports = {
       if (!channel) {
         return interaction.reply({
           content: '`❌` | Invalid channel selected.',
-          ephemeral: true
+          flags: [64]
         });
       }
 
@@ -130,7 +130,7 @@ Siapa saja yang posting di sini (kecuali staff) akan **OTOMATIS DITIMEOUT 24 JAM
         console.error('Error setting up scam trap:', error);
         await interaction.reply({
           content: '`❌` | Error setting up scam trap. Please try again.',
-          ephemeral: true
+          flags: [64]
         });
       }
 
@@ -158,7 +158,7 @@ Siapa saja yang posting di sini (kecuali staff) akan **OTOMATIS DITIMEOUT 24 JAM
         console.error('Error disabling scam trap:', error);
         await interaction.reply({
           content: '`❌` | Error disabling scam trap. Please try again.',
-          ephemeral: true
+          flags: [64]
         });
       }
 

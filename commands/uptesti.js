@@ -21,7 +21,7 @@ module.exports = {
         const allowedRoles = config.roles.admin; 
         const memberRoles = interaction.member.roles.cache;
         if (!allowedRoles?.some(role => memberRoles.has(role))) {
-            return interaction.reply({ content: 'Anda tidak memiliki izin untuk menggunakan perintah ini.', ephemeral: true });
+            return interaction.reply({ content: 'Anda tidak memiliki izin untuk menggunakan perintah ini.', flags: [64] });
         }
 
         const testimoniChannelId = config.channels?.testimonial;
@@ -29,7 +29,7 @@ module.exports = {
 
         if (!testimoniChannel) {
             console.error(`Channel testimonial tidak ditemukan: ${testimoniChannelId}`);
-            return interaction.reply({ content: 'Channel testimonial tidak ditemukan.', ephemeral: true });
+            return interaction.reply({ content: 'Channel testimonial tidak ditemukan.', flags: [64] });
         }
 
         const messageId = interaction.options.getString('message_id');
@@ -40,12 +40,12 @@ module.exports = {
         try {
             messageToUpdate = await testimoniChannel.messages.fetch(messageId);
         } catch (error) {
-            return interaction.reply({ content: 'Pesan testimonial tidak ditemukan.', ephemeral: true });
+            return interaction.reply({ content: 'Pesan testimonial tidak ditemukan.', flags: [64] });
         }
 
         const oldEmbed = messageToUpdate.embeds[0];
         if (!oldEmbed) {
-            return interaction.reply({ content: 'Pesan testimonial tidak memiliki embed untuk diupdate.', ephemeral: true });
+            return interaction.reply({ content: 'Pesan testimonial tidak memiliki embed untuk diupdate.', flags: [64] });
         }
 
         const paidEmoji = module.exports.EMOJI?.STATUS?.PAID || '💰';
@@ -73,7 +73,7 @@ module.exports = {
 
         await messageToUpdate.edit({ embeds: [newEmbed] });
 
-        await interaction.reply({ content: 'Status pembayaran testimonial berhasil diupdate.', ephemeral: true });
+        await interaction.reply({ content: 'Status pembayaran testimonial berhasil diupdate.', flags: [64] });
     },
     EMOJI: {
         SUCCESS: '✅',

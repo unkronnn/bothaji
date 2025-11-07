@@ -55,7 +55,7 @@ module.exports = {
       console.error('Terjadi kesalahan pada perintah pembayaran:', error);
       await interaction.editReply({
         content: '❌ | Terjadi kesalahan saat memproses perintah pembayaran.',
-        ephemeral: true,
+        flags: [64],
       });
     }
   },

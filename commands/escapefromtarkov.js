@@ -75,7 +75,7 @@ module.exports = {
             console.error('Error in escapefromtarkov command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the Escape From Tarkov cheat collection',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

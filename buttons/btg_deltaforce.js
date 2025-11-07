@@ -125,7 +125,7 @@ A premium product for the game Delta Force from Break The Game group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

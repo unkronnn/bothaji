@@ -122,7 +122,7 @@ A premium product for the game Etheria Restart from Unicore group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

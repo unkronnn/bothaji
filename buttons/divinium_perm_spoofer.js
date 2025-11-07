@@ -63,7 +63,7 @@ Fortnite, Apex Legends, Rust, Dungeonborn, Dark and Darker, Arena Breakout Infin
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

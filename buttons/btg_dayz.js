@@ -142,7 +142,7 @@ A premium product for the game DayZ from BTG group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

@@ -117,7 +117,7 @@ A premium product for the game Arena Breakout from Avalanche group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

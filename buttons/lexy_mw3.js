@@ -118,7 +118,7 @@ A premium product for Call of Duty MW3 / WZ / BO6 from Lexy group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

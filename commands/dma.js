@@ -51,7 +51,7 @@ module.exports = {
             console.error('Error in dma command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the DMA Hardware bundles',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

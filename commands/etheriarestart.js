@@ -40,7 +40,7 @@ module.exports = {
             console.error('Error in etheriarestart command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the Etheria Restart cheat collection',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

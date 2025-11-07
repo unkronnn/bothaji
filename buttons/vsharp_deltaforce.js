@@ -126,7 +126,7 @@ A premium product for the game Delta Force from V-Sharp group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

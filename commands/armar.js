@@ -55,7 +55,7 @@ module.exports = {
             console.error('Error in armar command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the Arma Reforger cheat information',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

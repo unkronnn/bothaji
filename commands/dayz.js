@@ -111,7 +111,7 @@ module.exports = {
             console.error('Error in dayz command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the DayZ cheat collection',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

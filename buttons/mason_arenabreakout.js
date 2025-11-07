@@ -101,7 +101,7 @@ A premium product for the game Arena Breakout: Infinite from Mason group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

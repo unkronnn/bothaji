@@ -45,7 +45,7 @@ module.exports = {
             console.error('Error in honkaistarrail command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the Honkai: Star Rail cheat collection',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

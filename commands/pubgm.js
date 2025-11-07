@@ -84,7 +84,7 @@ module.exports = {
             console.error('Error in example product command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the product list',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

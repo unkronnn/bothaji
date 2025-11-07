@@ -63,7 +63,7 @@ module.exports = {
             console.error('Error in grayzonewarfare command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the Gray Zone Warfare cheat collection',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

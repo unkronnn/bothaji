@@ -57,7 +57,7 @@ module.exports = {
             console.error('Error in arksurvival command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the ARK Survival cheat collection',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

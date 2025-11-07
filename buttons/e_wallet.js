@@ -1,5 +1,4 @@
 const { EmbedBuilder } = require('discord.js');
-const config = require('../config/config.json');
 
 module.exports = {
   customId: 'e_wallets',
@@ -22,6 +21,6 @@ module.exports = {
         iconURL: interaction.client.user.displayAvatarURL()
       });
 
-      await interaction.reply({ embeds: [embed], components: [], ephemeral: true });
+      await interaction.reply({ embeds: [embed], components: [], flags: [64] });
     },
 };

@@ -47,7 +47,7 @@ module.exports = {
             console.error('Error in unbanakun command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the unban service information',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

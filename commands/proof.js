@@ -25,7 +25,7 @@ module.exports = {
     if (!memberRoles.some(role => allowedRoles.includes(role.id))) {
       return interaction.reply({
         content: '`❌` | Oops! You do not have permission to use this command.',
-        ephemeral: true
+        flags: [64]
       });
     }
 
@@ -36,14 +36,14 @@ module.exports = {
     if (!channel || (channel.type !== ChannelType.GuildAnnouncement && channel.type !== ChannelType.GuildText)) {
       return interaction.reply({
         content: '`❌` | Oops! The selected channel is not valid.',
-        ephemeral: true
+        flags: [64]
       });
     }
 
     // Send prompt message
     await interaction.reply({
       content: '`📋` | Please send the proof message you want to share.',
-      ephemeral: true
+      flags: [64]
     });
 
     // Wait for user response
@@ -63,7 +63,7 @@ module.exports = {
         if (!allowedImageTypes.includes(image.contentType)) {
           return interaction.followUp({
             content: '`❌` | Oops! Only image files (JPEG, PNG, GIF, WEBP) are allowed.',
-            ephemeral: true
+            flags: [64]
           });
         }
 
@@ -96,7 +96,7 @@ module.exports = {
       if (collected.size === 0) {
         interaction.followUp({
           content: '`❌` | Timeout. Please restart the /proof command.',
-          ephemeral: true
+          flags: [64]
         });
       }
     });

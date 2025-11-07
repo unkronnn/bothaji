@@ -80,7 +80,7 @@ A premium product for the game Apex Legend from Phoenix group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

@@ -68,7 +68,7 @@ DMA Bundle is a full hardware package built for external game manipulation via D
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

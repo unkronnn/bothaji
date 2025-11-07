@@ -111,7 +111,7 @@ module.exports = {
             console.error('Error in cs2 command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the Counter-Strike 2 cheat information',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

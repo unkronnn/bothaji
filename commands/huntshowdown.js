@@ -75,7 +75,7 @@ module.exports = {
             console.error('Error in huntshowdown command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the Hunt: Showdown cheat collection',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

@@ -78,7 +78,7 @@ module.exports = {
             console.error('Error in mlbb command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the MLBB product list',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

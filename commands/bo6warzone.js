@@ -111,7 +111,7 @@ module.exports = {
             console.error('Error in bo6warzone command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the Black Ops 6 Warzone cheat information',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

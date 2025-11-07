@@ -103,7 +103,7 @@ A premium product for the game GTA V Legacy & Enhanced from Ovix group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

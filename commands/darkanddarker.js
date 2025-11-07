@@ -57,7 +57,7 @@ module.exports = {
             console.error('Error in darkanddarker command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the Dark and Darker cheat collection',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

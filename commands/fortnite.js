@@ -75,7 +75,7 @@ module.exports = {
             console.error('Error in fortnite command:', error);
             await interaction.editReply({
                 content: '❌ | Failed to display the Fortnite cheat collection',
-                ephemeral: true,
+                flags: [64],
             });
         }
     },

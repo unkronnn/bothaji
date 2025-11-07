@@ -145,7 +145,7 @@ A premium product for the game Dark and Darker from BC group.
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

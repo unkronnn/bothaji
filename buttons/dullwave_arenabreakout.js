@@ -85,7 +85,7 @@ For the complete list of advanced features, please check the available media and
         await interaction.reply({
             embeds: [embed],
             components: [],
-            ephemeral: true
+            flags: [64]
         });
     },
 };

@@ -154,7 +154,7 @@ ${data.image ? '\n📸 Gambar Anda telah dilampirkan pada masukan di channel.' :
 
  await interaction.followUp({
   embeds: [thankYouEmbed],
-  ephemeral: true
+  flags: [64]
  });
 }
 
@@ -185,7 +185,7 @@ module.exports = {
 
  async execute(interaction) {
   try {
-   await interaction.deferReply({ ephemeral: true });
+   await interaction.deferReply({ flags: [64] });
 
    const hasBuyerRole = interaction.member.roles.cache.has(config.roles.buyer);
    if (!hasBuyerRole) {
@@ -265,12 +265,12 @@ module.exports = {
    if (interaction.deferred || interaction.replied) {
     return interaction.editReply({
      content: '`❌` | Terjadi kesalahan internal saat memproses masukan Anda.',
-     ephemeral: true
+     flags: [64]
     });
    } else {
     return interaction.reply({
      content: '`❌` | Terjadi kesalahan internal saat memproses masukan Anda.',
-     ephemeral: true
+     flags: [64]
     });
    }
   }
