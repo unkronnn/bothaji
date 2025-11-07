@@ -1,0 +1,18 @@
+{
+  "dashboard": {
+    "channelId": null,
+    "messageId": null
+  },
+  "products": {
+    "marvelrivals": "safety",
+    "huntshowdown": "safety",
+    "hellletloose": "safety",
+    "honkaistarrail": "safety",
+    "dayz": "safety",
+    "fortnite": "safety",
+    "pubg": "maintenance",
+    "escapefromtarkov": "safety",
+    "deadbydaylight": "safety",
+    "gtav": "safety"
+  }
+}

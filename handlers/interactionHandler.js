@@ -56,7 +56,24 @@ module.exports = (client) => {
                 console.warn(`⚠️ Tidak ada handler untuk nilai dropdown: ${selectedValue}`);
             }
         } else if (interaction.isButton()) {
-            const handler = interactionHandlers.get(interaction.customId);
+            // Check for exact customId match first
+            let handler = interactionHandlers.get(interaction.customId);
+
+            // If no exact match, check for pattern-based handlers
+            if (!handler) {
+                for (const [pattern, patternHandler] of interactionHandlers.entries()) {
+                    if (pattern.includes('*') && interaction.customId.startsWith(pattern.replace('*', ''))) {
+                        handler = patternHandler;
+                        break;
+                    }
+                }
+
+                // Special handling for status buttons
+                if (!handler && interaction.customId.startsWith('status:')) {
+                    handler = interactionHandlers.get('status:*');
+                }
+            }
+
             if (handler) {
                 try {
                     await handler.execute(interaction);
