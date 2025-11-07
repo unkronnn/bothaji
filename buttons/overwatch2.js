@@ -1,7 +1,7 @@
 const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
-    id: 'overwatch2_menu',
+    customId: 'overwatch2_menu',
     async execute(interaction) {
         await interaction.deferUpdate();
 

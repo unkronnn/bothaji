@@ -1,7 +1,7 @@
 const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
-    id: 'rdr2_menu',
+    customId: 'rdr2_menu',
     async execute(interaction) {
         await interaction.deferUpdate();
 

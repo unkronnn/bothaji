@@ -1,7 +1,7 @@
 const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
-    id: 'payday3_menu',
+    customId: 'payday3_menu',
     async execute(interaction) {
         await interaction.deferUpdate();
 

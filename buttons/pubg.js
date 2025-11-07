@@ -1,7 +1,7 @@
 const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
-    id: 'pubg_menu',
+    customId: 'pubg_menu',
     async execute(interaction) {
         await interaction.deferUpdate();
 

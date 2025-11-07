@@ -1,7 +1,7 @@
 const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
-    id: 'narakabladepoint_menu',
+    customId: 'narakabladepoint_menu',
     async execute(interaction) {
         await interaction.deferUpdate();
 
