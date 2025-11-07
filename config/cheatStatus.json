@@ -1,0 +1,37 @@
+{
+  "marvelrivals": {
+    "byster_marvelrivals": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - All features working" },
+    "unicore_marvelrivals": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Working perfectly" },
+    "ancient_marvelrivals": { "status": "maintenance", "lastCheck": "2025-01-07T09:30:00Z", "message": "Under maintenance - ETA 2 hours" },
+    "stern_marvelrivals": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Lifetime option available" },
+    "bc_marvelrivals": { "status": "out_of_stock", "lastCheck": "2025-01-07T08:45:00Z", "message": "Out of stock - Restocking soon" },
+    "lexy_marvelrivals": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - StreamProof active" },
+    "pussycat_marvelrivals": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Most affordable option" },
+    "smg_marvelrivals": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced customization" }
+  },
+  "huntshowdown": {
+    "phoenix_huntshowdown": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - All features working" },
+    "lexy_huntshowdown": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Premium protection" },
+    "ancient_huntshowdown": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Advanced aimbot" },
+    "stern_huntshowdown": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Lifetime available" },
+    "mason_huntshowdown": { "status": "out_of_stock", "lastCheck": "2025-01-07T06:20:00Z", "message": "Out of stock - Restocking tomorrow" },
+    "smg_huntshowdown": { "status": "maintenance", "lastCheck": "2025-01-07T07:15:00Z", "message": "Under maintenance - Update in progress" }
+  },
+  "hellletloose": {
+    "lexy_hll": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Built-in spoofer" },
+    "stern_hll": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Lifetime option" },
+    "pussycat_hll": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Affordable pricing" },
+    "mason_hll": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - Detailed ESP" },
+    "smg_hll": { "status": "out_of_stock", "lastCheck": "2025-01-07T05:30:00Z", "message": "Out of stock - High demand" }
+  },
+  "honkaistarrail": {
+    "unicore_honkaistarrail": { "status": "available", "lastCheck": "2025-01-07T10:00:00Z", "message": "Available - 15x battle speed" }
+  },
+  "globalSettings": {
+    "statusChannelId": "YOUR_STATUS_CHANNEL_ID",
+    "adminChannelId": "YOUR_ADMIN_CHANNEL_ID",
+    "autoUpdate": true,
+    "updateInterval": 300000,
+    "statusMessageId": null
+  }
+}

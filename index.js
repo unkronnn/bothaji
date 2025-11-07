@@ -143,6 +143,10 @@ function delay(ms) {
       console.error(error.message);
     }
 
+    // Start status auto-update system
+    console.log('[INFO] Starting status auto-update system...');
+    startStatusAutoUpdate(client);
+
     console.log('[✅] Bot is ready to use!');
   });
 
@@ -156,3 +160,170 @@ function delay(ms) {
     process.exit(1);
   }
 })();
+
+// Status Auto-Update System
+function startStatusAutoUpdate(client) {
+  const fs = require('fs');
+  const path = require('path');
+
+  let updateInterval;
+
+  async function updateStatus() {
+    try {
+      const statusFile = path.join(__dirname, './config/cheatStatus.json');
+
+      if (!fs.existsSync(statusFile)) {
+        console.log('[INFO] Status file not found, skipping auto-update');
+        return;
+      }
+
+      const statusData = JSON.parse(fs.readFileSync(statusFile, 'utf8'));
+
+      if (!statusData.globalSettings?.autoUpdate) {
+        console.log('[INFO] Auto-update is disabled');
+        return;
+      }
+
+      const statusChannelId = statusData.globalSettings.statusChannelId;
+      if (!statusChannelId) {
+        console.log('[INFO] Status channel not configured, skipping auto-update');
+        return;
+      }
+
+      const channel = await client.channels.fetch(statusChannelId).catch(() => null);
+      if (!channel) {
+        console.log('[WARNING] Status channel not found, skipping auto-update');
+        return;
+      }
+
+      // Generate updated status embed
+      const embed = generateStatusEmbed(statusData);
+
+      // Update existing message or create new one
+      if (statusData.globalSettings.statusMessageId) {
+        try {
+          const message = await channel.messages.fetch(statusData.globalSettings.statusMessageId);
+          await message.edit({ embeds: [embed] });
+          console.log(`[✅] Status auto-updated successfully at ${new Date().toLocaleTimeString()}`);
+        } catch (error) {
+          console.log('[INFO] Status message not found, creating new one...');
+          const newMessage = await channel.send({ embeds: [embed] });
+          statusData.globalSettings.statusMessageId = newMessage.id;
+          fs.writeFileSync(statusFile, JSON.stringify(statusData, null, 2));
+        }
+      }
+
+    } catch (error) {
+      console.error('[ERROR] Failed to auto-update status:', error.message);
+    }
+  }
+
+  function generateStatusEmbed(statusData) {
+    const EmbedBuilder = require('discord.js').EmbedBuilder;
+
+    let allAvailable = 0;
+    let totalCheats = 0;
+    const statusCounts = {
+      available: 0,
+      maintenance: 0,
+      out_of_stock: 0,
+      limited_stock: 0
+    };
+
+    // Calculate statistics
+    for (const [game, cheats] of Object.entries(statusData)) {
+      if (game === 'globalSettings') continue;
+
+      for (const [cheat, info] of Object.entries(cheats)) {
+        totalCheats++;
+        if (info.status === 'available') allAvailable++;
+        statusCounts[info.status] = (statusCounts[info.status] || 0) + 1;
+      }
+    }
+
+    const successRate = totalCheats > 0 ? Math.round((allAvailable/totalCheats) * 100) : 0;
+
+    // Set embed color based on overall availability
+    let overallColor;
+    if (successRate >= 80) {
+      overallColor = '#00ff00'; // Green
+    } else if (successRate >= 60) {
+      overallColor = '#ffaa00'; // Yellow
+    } else {
+      overallColor = '#ff0000'; // Red
+    }
+
+    const embed = new EmbedBuilder()
+      .setTitle('🎮 Yash Store - Live Cheat Status Dashboard')
+      .setDescription('Real-time availability status for all game cheats • Auto-updated every 5 minutes')
+      .setColor(overallColor)
+      .setThumbnail('https://cdn.discordapp.net/attachments/1412314599637651477/1434088772135424041/file.png.jpeg')
+      .setTimestamp()
+      .setFooter({
+        text: `Last updated: ${new Date().toLocaleString()} • Auto-refresh active • Success Rate: ${successRate}%`,
+        iconURL: 'https://cdn.discordapp.net/attachments/1412314599637651477/1434088772135424041/file.png.jpeg'
+      })
+      .addFields(
+        {
+          name: '📊 Live Statistics',
+          value: `✅ **Available:** ${statusCounts.available}\n` +
+                 `🔧 **Maintenance:** ${statusCounts.maintenance}\n` +
+                 `❌ **Out of Stock:** ${statusCounts.out_of_stock}\n` +
+                 `⚠️ **Limited Stock:** ${statusCounts.limited_stock}\n\n` +
+                 `📈 **Overall Success Rate:** ${successRate}% (${allAvailable}/${totalCheats})`,
+          inline: true
+        },
+        {
+          name: '🔄 Update Information',
+          value: `**Next Update:** <t:${Math.floor(Date.now() / 1000) + 300}:R>\n` +
+                 `**Auto-Update:** Active\n` +
+                 `**Update Interval:** Every 5 minutes\n` +
+                 `**System Status:** Online`,
+          inline: true
+        }
+      );
+
+    // Add alerts if needed
+    const alerts = [];
+    if (statusCounts.limited_stock > 0) {
+      alerts.push(`🚨 **Limited Stock Alert:** ${statusCounts.limited_stock} cheat(s) with limited availability!`);
+    }
+    if (statusCounts.maintenance > 0) {
+      alerts.push(`🔧 **Maintenance Notice:** ${statusCounts.maintenance} cheat(s) currently under maintenance`);
+    }
+
+    if (alerts.length > 0) {
+      embed.addFields({
+        name: '🚨 Active Alerts',
+        value: alerts.join('\n'),
+        inline: false
+      });
+    }
+
+    return embed;
+  }
+
+  // Initial update after 10 seconds
+  setTimeout(updateStatus, 10000);
+
+  // Set up recurring updates
+  const updateIntervalMs = 300000; // 5 minutes
+  updateInterval = setInterval(updateStatus, updateIntervalMs);
+
+  console.log(`[✅] Status auto-update system started (interval: ${updateIntervalMs/1000} seconds)`);
+
+  // Handle shutdown gracefully
+  process.on('SIGINT', () => {
+    if (updateInterval) {
+      clearInterval(updateInterval);
+      console.log('[INFO] Status auto-update stopped');
+    }
+  });
+
+  process.on('SIGTERM', () => {
+    if (updateInterval) {
+      clearInterval(updateInterval);
+      console.log('[INFO] Status auto-update stopped');
+    }
+  });
+}

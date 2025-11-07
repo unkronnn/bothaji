@@ -1,6 +1,6 @@
 module.exports = {
   apps: [{
-    name: 'yash-store-bot',
+    name: 'HAJIUTONG-BOT',
     script: 'index.js',
     instances: 1,
     autorestart: true,
